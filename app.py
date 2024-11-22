@@ -34,7 +34,7 @@ with col2:
     if uploaded_file:
         pdf_reader = PdfReader(uploaded_file)
         roadmap = "\n".join([page.extract_text() for page in pdf_reader.pages])
-        st.success("File uploaded and content extracted!")
+        st.success("File uploaded successfully")
 
 # Submit Button
 if st.button("Submit"):
