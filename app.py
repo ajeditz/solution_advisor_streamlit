@@ -23,6 +23,9 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Behavior Prompt")
     behavior_prompt = st.text_area("Enter your prompt here:", value="")
+    emails=st.text_input(label="Enter a list of emails (commma-separated)")
+    emails_list = [email.strip() for email in emails.split(",")]
+
 
 # Column 2: Roadmap
 with col2:
@@ -48,7 +51,8 @@ if st.button("Submit"):
         # Prepare data for API
         payload = {
             "behavior_prompt": final_behavior_prompt,
-            "roadmap": roadmap
+            "roadmap": roadmap,
+            "emails":emails_list
         }
 
         # Connect to the endpoint
@@ -62,6 +66,7 @@ if st.button("Submit"):
             # Parse API response
             data = response.json()
             room_url = data.get("room_url")
+
             
             if room_url:
                 st.success("Successfully connected! Click below to join the room:")
