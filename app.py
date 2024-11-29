@@ -23,7 +23,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Behavior Prompt")
     behavior_prompt = st.text_area("Enter your prompt here:", value="")
-    emails=st.text_input(label="Enter a list of emails (commma-separated)")
+    emails=st.text_input(label="Enter a list of emails (comma-separated)")
     emails_list = [email.strip() for email in emails.split(",")]
 
 
